@@ -1,79 +1,79 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Status da Build"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total de Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Última Versão Estável"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="Licença"></a>
 </p>
 
-## About PayFlow
+## Sobre o PayFlow
 
-**PayFlow** is a simple payment system developed with **Laravel** that simulates integration with various payment methods like credit cards, bank transfers, and others. It allows asynchronous transaction processing using **Redis** as the message queue and **cache** to optimize performance.
+**PayFlow** é um sistema de pagamentos simples desenvolvido com **Laravel** que simula a integração com diversos métodos de pagamento, como cartões de crédito, transferências bancárias e outros. Ele permite o processamento assíncrono de transações utilizando **Redis** como fila de mensagens e **cache** para otimizar o desempenho.
 
-This project demonstrates skills in API integration, queue management with Redis, and cache optimization, all without incurring additional costs.
-
----
-
-## **Technologies Used**
-- **Laravel:** PHP framework for backend development.
-- **MySQL/MariaDB:** Relational database for storing transaction data.
-- **Redis:** Cache storage and message queue management.
-- **Stripe/PayPal API:** Simulated payment gateway integration.
+Este projeto demonstra habilidades em integração com APIs, gerenciamento de filas com Redis e otimização de cache, tudo sem custos adicionais.
 
 ---
 
-## **Main Features**
-1. **User Registration:**
-   - Users can register with personal details and payment information.
-   - Payment data is securely stored using encryption.
-
-2. **Transaction Recording:**
-   - Transactions are recorded in the database with status (pending, completed, failed).
-   - The system updates the transaction status after payment confirmation.
-
-3. **Payment API Integration:**
-   - Simulated integration with **Stripe** or **PayPal** for processing payments.
-   - Payment receipts are generated after completion.
-
-4. **Asynchronous Processing with Redis:**
-   - Redis queues are used to process payments asynchronously.
-   - Transaction status is updated after processing.
-
-5. **Cache with Redis:**
-   - Temporary data is cached using Redis to improve system performance.
-
-6. **Monitoring with PM2:**
-   - The Laravel process is managed with **PM2** to ensure high availability and performance.
+## **Tecnologias Utilizadas**
+- **Laravel:** Framework PHP para desenvolvimento backend.
+- **MySQL/MariaDB:** Banco de dados relacional para armazenar os dados das transações.
+- **Redis:** Armazenamento de cache e gerenciamento de filas de mensagens.
+- **Stripe/PayPal API:** Integração simulada com gateways de pagamento.
 
 ---
 
-## **Installation and Setup**
+## **Principais Funcionalidades**
+1. **Cadastro de Usuário:**
+   - Usuários podem se registrar com dados pessoais e informações de pagamento.
+   - Os dados de pagamento são armazenados de forma segura utilizando criptografia.
 
-### **Prerequisites**
+2. **Registro de Transações:**
+   - Transações são registradas no banco de dados com status (pendente, concluída, falhada).
+   - O sistema atualiza o status da transação após a confirmação do pagamento.
+
+3. **Integração com APIs de Pagamento:**
+   - Integração simulada com **Stripe** ou **PayPal** para processamento de pagamentos.
+   - Comprovantes de pagamento são gerados após a conclusão.
+
+4. **Processamento Assíncrono com Redis:**
+   - As transações são enfileiradas no Redis para processamento assíncrono.
+   - O status da transação é atualizado após o processamento.
+
+5. **Cache com Redis:**
+   - Dados temporários são armazenados em cache utilizando Redis para melhorar o desempenho.
+
+6. **Monitoramento com PM2:**
+   - O processo do Laravel é gerenciado com **PM2** para garantir alta disponibilidade e desempenho.
+
+---
+
+## **Instalação e Configuração**
+
+### **Pré-requisitos**
 - **PHP 8.0+**
-- **Composer** (PHP dependency manager)
+- **Composer** (Gerenciador de dependências PHP)
 - **MySQL/MariaDB**
-- **Redis** (Install Redis locally or use a free instance like Redis Labs)
-- **PM2** (Node.js process manager)
+- **Redis** (Instalar Redis localmente ou usar uma instância gratuita como Redis Labs)
+- **PM2** (Gerenciador de processos Node.js)
 
-### **Installation Steps**
+### **Passos para Instalação**
 
-1. **Clone the Repository**
-   - Clone the repository to your working directory:
+1. **Clonar o Repositório**
+   - Clone o repositório para o seu diretório de trabalho:
      ```bash
      git clone https://github.com/usuario/payflow.git
      cd payflow
      ```
 
-2. **Install Dependencies**
-   - Install Laravel dependencies:
+2. **Instalar Dependências**
+   - Instale as dependências do Laravel:
      ```bash
      composer install
      ```
 
-3. **Configure Database**
-   - Create a MySQL/MariaDB database and update the `.env` file with your credentials:
+3. **Configurar o Banco de Dados**
+   - Crie um banco de dados MySQL/MariaDB e atualize o arquivo `.env` com suas credenciais:
      ```dotenv
      DB_CONNECTION=mysql
      DB_HOST=127.0.0.1
@@ -83,78 +83,78 @@ This project demonstrates skills in API integration, queue management with Redis
      DB_PASSWORD=
      ```
 
-4. **Configure Redis**
-   - In the `.env` file, configure Redis:
+4. **Configurar o Redis**
+   - No arquivo `.env`, configure o Redis:
      ```dotenv
      CACHE_DRIVER=redis
      SESSION_DRIVER=redis
      QUEUE_CONNECTION=redis
      ```
 
-5. **Configure Stripe/PayPal**
-   - Set up API credentials in the `.env` file:
+5. **Configurar Stripe/PayPal**
+   - Defina as credenciais da API no arquivo `.env`:
      ```dotenv
-     STRIPE_KEY=your-stripe-key
-     STRIPE_SECRET=your-stripe-secret
-     PAYPAL_CLIENT_ID=your-paypal-client-id
-     PAYPAL_SECRET=your-paypal-secret
+     STRIPE_KEY=sua-chave-stripe
+     STRIPE_SECRET=seu-secreto-stripe
+     PAYPAL_CLIENT_ID=seu-id-cliente-paypal
+     PAYPAL_SECRET=seu-secreto-paypal
      ```
 
-6. **Run Migrations**
-   - Execute the migrations to create the necessary tables:
+6. **Executar Migrations**
+   - Execute as migrations para criar as tabelas necessárias:
      ```bash
      php artisan migrate
      ```
 
-7. **Install and Configure PM2**
-   - Install PM2 globally:
+7. **Instalar e Configurar PM2**
+   - Instale o PM2 globalmente:
      ```bash
      npm install pm2@latest -g
      ```
-   - Start the Laravel application with PM2:
+   - Inicie a aplicação Laravel com o PM2:
      ```bash
      pm2 start php artisan serve --name "payflow"
      ```
 
 ---
 
-## **Using the System**
+## **Usando o Sistema**
 
-1. **User Registration:**
-   - Access the registration page and enter user details.
-   - The system will register the user and payment details.
+1. **Cadastro de Usuário:**
+   - Acesse a página de cadastro e insira os dados do usuário.
+   - O sistema irá registrar o usuário e os dados de pagamento.
 
-2. **Transaction Registration:**
-   - The user can initiate a payment transaction.
-   - The system will send a request to the payment API (e.g., Stripe).
-   - The transaction status will be updated accordingly.
+2. **Registro de Transações:**
+   - O usuário pode iniciar uma transação de pagamento.
+   - O sistema enviará uma solicitação para a API de pagamento (ex: Stripe).
+   - O status da transação será atualizado conforme a resposta.
 
-3. **Asynchronous Processing with Redis:**
-   - The transaction will be queued in Redis for asynchronous processing.
-   - The status will be updated once processing is complete.
+3. **Processamento Assíncrono com Redis:**
+   - A transação será enfileirada no Redis para processamento assíncrono.
+   - O status será atualizado após o processamento.
 
-4. **Monitoring and Performance:**
-   - The system is monitored with PM2 to ensure the Laravel process is always running.
-
----
-
-## **Testing**
-- **Payment API Integration Tests:** Test the communication with payment APIs (Stripe or PayPal).
-- **Queue Tests (Redis):** Verify that transactions are processed correctly via queues.
-- **Cache Tests (Redis):** Ensure data is being cached and retrieved correctly from Redis.
+4. **Monitoramento e Desempenho:**
+   - O sistema é monitorado com o PM2 para garantir que o processo do Laravel esteja sempre em execução.
 
 ---
 
-## **Conclusion**
-**PayFlow** is a simple and efficient payment system that uses **Redis** for message queues and cache, making it a cost-effective solution for handling payments. The project demonstrates skills in API integration, asynchronous processing, and performance optimization. It can be expanded to include additional features such as real-time notifications, detailed transaction reports, and more.
+## **Testes**
+- **Testes de Integração com API de Pagamento:** Teste a comunicação com as APIs de pagamento (Stripe ou PayPal).
+- **Testes de Filas (Redis):** Verifique se as transações estão sendo processadas corretamente pelas filas.
+- **Testes de Cache (Redis):** Certifique-se de que os dados estão sendo armazenados e recuperados corretamente do Redis.
 
 ---
 
-## **Laravel Sponsors**
+## **Conclusão**
+**PayFlow** é um sistema de pagamentos simples e eficiente que utiliza **Redis** para filas de mensagens e cache, tornando-o uma solução econômica para processamento de pagamentos. O projeto demonstra habilidades em integração com APIs, processamento assíncrono e otimização de desempenho. Ele pode ser expandido para incluir recursos adicionais, como notificações em tempo real, relatórios detalhados de transações e muito mais.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### **Premium Partners**
+## **Patrocinadores do Laravel**
+
+Gostaríamos de agradecer aos seguintes patrocinadores pelo financiamento ao desenvolvimento do Laravel. Se você está interessado em se tornar um patrocinador, visite o [programa de Parceiros do Laravel](https://partners.laravel.com).
+
+### **Parceiros Premium**
 
 - **[Vehikl](https://vehikl.com/)**
 - **[Tighten Co.](https://tighten.co)**
@@ -172,18 +172,18 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 ---
 
-## **Contributing**
+## **Contribuindo**
 
-Thank you for considering contributing to the PayFlow project! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Obrigado por considerar contribuir para o projeto PayFlow! O guia de contribuição pode ser encontrado na [documentação do Laravel](https://laravel.com/docs/contributions).
 
-## **Code of Conduct**
+## **Código de Conduta**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Para garantir que a comunidade Laravel seja acolhedora para todos, por favor, revise e siga o [Código de Conduta](https://laravel.com/docs/contributions#code-of-conduct).
 
-## **Security Vulnerabilities**
+## **Vulnerabilidades de Segurança**
 
-If you discover a security vulnerability within PayFlow, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Se você descobrir uma vulnerabilidade de segurança dentro do PayFlow, envie um e-mail para Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). Todas as vulnerabilidades de segurança serão prontamente tratadas.
 
-## **License**
+## **Licença**
 
-The PayFlow project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+O projeto PayFlow é um software open-source licenciado sob a [licença MIT](https://opensource.org/licenses/MIT).
