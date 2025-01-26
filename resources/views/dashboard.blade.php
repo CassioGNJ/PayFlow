@@ -11,9 +11,11 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3 class="text-2xl font-semibold mb-4">Transações Recentes</h3>
 
-                    <!-- Tabela de Transações -->
                     <div class="overflow-x-auto flex justify-center">
                         <table class="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-lg">
+                            @if ($transactions->isEmpty())
+                                <td class="py-3 px-4 text-left whitespace-nowrap" colspan="5">Nenhuma transação encontrada.</td>
+                            @endif
                             <thead>
                                 <tr class="border-b dark:border-gray-700">
                                     <th class="py-3 px-4 text-left text-sm font-medium text-gray-900 dark:text-gray-100">ID</th>
@@ -24,15 +26,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Aqui você pode iterar pelas transações -->
                                 <tr class="border-b dark:border-gray-700">
-                                    <td class="py-3 px-4 text-sm text-gray-900 dark:text-gray-100">#12345</td>
-                                    <td class="py-3 px-4 text-sm text-gray-900 dark:text-gray-100">João Silva</td>
-                                    <td class="py-3 px-4 text-sm text-gray-900 dark:text-gray-100">R$ 150,00</td>
-                                    <td class="py-3 px-4 text-sm text-gray-900 dark:text-gray-100">Concluída</td>
-                                    <td class="py-3 px-4 text-sm text-gray-900 dark:text-gray-100">25/01/2025</td>
+                                    @foreach ($transactions as $transaction)
+                                        <td class="py-3 px-4 text-left whitespace-nowrap">{{ $transaction->id }}</td>
+                                        <td class="py-3 px-4 text-left">{{ $transaction->user->name }}</td>
+                                        <td class="py-3 px-4 text-left">{{ $transaction->value }}</td>
+                                        <td class="py-3 px-4 text-left">{{ $transaction->status }}</td>
+                                        <td class="py-3 px-4 text-left">{{ $transaction->created_at }}</td>
+                                    @endforeach
                                 </tr>
-                                <!-- Adicione mais transações aqui -->
                             </tbody>
                         </table>
                     </div>

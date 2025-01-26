@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Transaction;
+use App\Constantas\Transactions;
+ 
+
 
 class GenerateTransactionController extends Controller
 {
@@ -11,7 +15,7 @@ class GenerateTransactionController extends Controller
         return view('generate_transaction');
     }
 
-    public function post(Request $request) {
+    public function generete_Transaction(Request $request) {
         try {
             DB::beginTransaction();
     
@@ -22,7 +26,7 @@ class GenerateTransactionController extends Controller
         }
     }
 
-    public function destroy(Request $request) {
+    public function destroy_Transaction(Request $request) {
         try {
             DB::beginTransaction();
     
